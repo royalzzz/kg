@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>化工知识图谱</title>
+    <link rel="stylesheet" type="text/css" th:href="@{~/ui/semantic/semantic.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{~/ui/semantic/style.css}">
+    <script th:src="@{~/ui/semantic/jquery-3.1.1.min.js}"></script>
+    <script th:src="@{~/ui/semantic/semantic.min.js}"></script>
+    <script th:src="@{~/js/nav.js}"></script>
+</head>
+<body>
+<nav th:include="layout/nav::nav"></nav>
+<div class="ui main text container">
+    <h1 class="ui header">化工领域的知识图谱</h1>
+    <p></p>
+    <p>随着近几年知识图谱技术的进步，知识图谱研究与落地发生了一些转向。其中一个重要变化就是越来越多的研究与落地工作从通用知识图谱转向了领域或行业知识图谱。知识图谱技术与各行业的深度融合已经成为一个重要趋势。</p>
+    <img th:src="@{~/assets/images/know.jpg}" alt="" style="width: 300px;">
+    <div class="ui divider"></div>
+    <div class="ui statistics">
+        <div class="red statistic" style="margin: auto">
+            <div class="value">
+                32329
+            </div>
+            <div class="label">
+                危化品信息
+            </div>
+        </div>
+        <table class="ui red table">
+            <thead>
+            <tr>
+                <th>CAS</th>
+                <th>名称</th>
+                <th>分子式</th>
+                <th>分子量</th>
+                <th>熔点℃</th>
+                <th>沸点℃</th>
+                <th>危险性</th>
+                <th>···</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1310-73-2</td>
+                <td>氢氧化钠</td>
+                <td>NaOH</td>
+                <td>40.00</td>
+                <td>318</td>
+                <td>1388</td>
+                <td>腐蚀性</td>
+                <td>···</td>
+            </tr>
+            <tr>
+                <td>50-0-0</td>
+                <td>甲醛</td>
+                <td>CH<sub>2</sub>O</td>
+                <td>30.03</td>
+                <td>-92</td>
+                <td>-20</td>
+                <td>毒性</td>
+                <td>···</td>
+            </tr>
+            <tr>
+                <td>141-78-6</td>
+                <td>乙酸乙酯</td>
+                <td>C<sub>4</sub>H<sub>8</sub>O<sub>2</sub>CHO</td>
+                <td>88.1</td>
+                <td>-84</td>
+                <td>77</td>
+                <td>易燃性</td>
+                <td>···</td>
+            </tr>
+            <tr>
+                <td>108-95-2</td>
+                <td>苯酚</td>
+                <td>C<sub>6</sub>H<sub>6</sub>O</td>
+                <td>94.11</td>
+                <td>43</td>
+                <td>182</td>
+                <td>腐蚀性</td>
+                <td>···</td>
+            </tr>
+            <tr>
+                <td>···</td>
+                <td>···</td>
+                <td>···</td>
+                <td>···</td>
+                <td>···</td>
+                <td>···</td>
+                <td>···</td>
+                <td>···</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p></p>
+    <p></p>
+    <h1 class="ui header">还有更多...</h1>
+    <p></p>
+    <div class="ui divider"></div>
+    <div class="ui statistics">
+        <div class="orange statistic">
+            <div class="value">
+                300
+            </div>
+            <div class="label">
+                危险特性
+            </div>
+        </div>
+        <div class="yellow statistic">
+            <div class="value">
+                198
+            </div>
+            <div class="label">
+                装置设备
+            </div>
+        </div>
+        <div class="olive statistic">
+            <div class="value">
+                263
+            </div>
+            <div class="label">
+                防护措施
+            </div>
+        </div>
+        <div class="green statistic">
+            <div class="value">
+                4718
+            </div>
+            <div class="label">
+                实体关系
+            </div>
+        </div>
+        <div class="teal statistic">
+            <div class="value">
+                158
+            </div>
+            <div class="label">
+                应急处理措施
+            </div>
+        </div>
+        <div class="blue statistic">
+            <div class="value">
+                434
+            </div>
+            <div class="label">
+                安全操作要求
+            </div>
+        </div>
+        <div class="violet statistic">
+            <div class="value">
+                399
+            </div>
+            <div class="label">
+                储存安全要求
+            </div>
+        </div>
+        <div class="purple statistic">
+            <div class="value">
+                122
+            </div>
+            <div class="label">
+                灭火方法
+            </div>
+        </div>
+        <div class="pink statistic">
+            <div class="value">
+                64
+            </div>
+            <div class="label">
+                灭火注意事项
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui inverted vertical footer segment" style="background-color: #1e77ba">
+    <div class="ui center aligned container">
+        <img th:src="@{~/assets/images/kg.png}" class="ui centered mini image" alt="kg">
+        <div class="ui horizontal inverted small divided link list">
+            <a class="item" href="#">503实验室</a>
+            <a class="item" href="#">知识图谱项目组</a>
+            <a class="item" href="#">隐私政策</a>
+        </div>
+        <div class="ui horizontal inverted">
+            <span>2020 © ️QUST</span>
+        </div>
+
+    </div>
+</div>
+
+<div class="ui basic modal">
+    <div class="ui icon header">
+        <i class="archive icon"></i>
+        暂未开放
+    </div>
+    <div class="content">
+        <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+    </div>
+    <div class="actions">
+        <div class="ui red basic cancel inverted button">
+            <i class="remove icon"></i>
+            No
+        </div>
+        <div class="ui green ok inverted button">
+            <i class="checkmark icon"></i>
+            Yes
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

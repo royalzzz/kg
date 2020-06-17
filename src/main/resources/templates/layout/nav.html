@@ -1,0 +1,35 @@
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+    <nav th:fragment="nav">
+        <div class="ui fixed inverted menu" style="background-color: #0e566c;">
+            <div class="ui container">
+                <a href="#" class="header item">
+                    <img class="logo" th:src="@{~/assets/images/kg.png}" style="width: 28px;height: 28px;" alt="kg">
+                    <span style="margin-left: 8px;">化工知识图谱</span>
+                </a>
+                <a href="javascript:void(0);" class="item" th:onclick="test()">图谱搜索</a>
+                <div class="ui simple dropdown item">
+                    相关工作
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="#">概念图谱</a>
+                        <a class="item" href="relation/tag-task">标记任务</a>
+                        <a class="item" href="#">研究资料</a>
+                        <a class="item" href="#">化工数据库</a>
+                        <div class="divider"></div>
+                        <div class="header">图谱更新</div>
+                        <div class="item">
+                            <i class="dropdown icon"></i>
+                            关系抽取
+                            <div class="menu">
+                                <a class="item" href="#">实体关系</a>
+                                <a class="item" href="#">实体属性</a>
+                            </div>
+                        </div>
+                        <a class="item" href="#">实体抽取</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+</html>
