@@ -1,4 +1,4 @@
-package xin.qust.kg.domain;
+package xin.qust.kg.domain.grpah;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.neo4j.ogm.annotation.GeneratedValue;
@@ -7,7 +7,6 @@ import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 import org.neo4j.ogm.id.UuidStrategy;
 
-import java.math.BigDecimal;
 import java.util.Set;
 
 @NodeEntity

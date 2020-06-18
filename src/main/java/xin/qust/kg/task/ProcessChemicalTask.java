@@ -5,10 +5,10 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
-import xin.qust.kg.domain.Chemical;
-import xin.qust.kg.domain.DangerCharacter;
-import xin.qust.kg.repository.ChemicalRepository;
-import xin.qust.kg.repository.DangerCharacterRepository;
+import xin.qust.kg.domain.grpah.Chemical;
+import xin.qust.kg.domain.grpah.DangerCharacter;
+import xin.qust.kg.repository.graph.ChemicalRepository;
+import xin.qust.kg.repository.graph.DangerCharacterRepository;
 
 import java.io.IOException;
 import java.util.*;

@@ -1,15 +1,11 @@
 package xin.qust.kg.api;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import xin.qust.kg.domain.User;
-import xin.qust.kg.repository.UserRepository;
+import xin.qust.kg.domain.grpah.User;
+import xin.qust.kg.repository.graph.UserRepository;
 
-import java.math.BigDecimal;
-import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 @RestController
 @RequestMapping("user")

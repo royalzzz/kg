@@ -1,4 +1,18 @@
 spring:
+  datasource:
+    username: root
+    password: dotdot
+    url: jdbc:mysql://127.0.0.1:3306/kg?characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    open-in-view: true
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   data:
     neo4j:
       uri: bolt://localhost:7687

@@ -1,4 +1,4 @@
-package xin.qust.kg.domain;
+package xin.qust.kg.domain.grpah;
 
 import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;

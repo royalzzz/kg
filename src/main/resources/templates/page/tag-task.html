@@ -5,11 +5,74 @@
     <title>相关工作 - 标记任务</title>
     <link rel="stylesheet" type="text/css" th:href="@{~/ui/semantic/semantic.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{~/ui/semantic/style.css}">
-    <script th:src="@{~/ui/semantic/jquery-3.1.1.min.js}"></script>
+    <script th:src="@{~/js/jquery-3.1.1.min.js}"></script>
     <script th:src="@{~/ui/semantic/semantic.min.js}"></script>
+    <script th:src="@{~/js/tag-task.js}"></script>
 </head>
 <body>
 <nav th:include="layout/nav::nav"></nav>
-<h1 th:text="${name}"></h1>
+<div class="ui container" style="margin-top: 80px;" >
+
+    <h2 class="ui header">
+        标记任务 Task
+        <div class="sub header">深度学习训练数据打标签过程为了获取大量的训练数据,需要执行采集数据的任务。</div>
+    </h2>
+    <div class="ui divider"></div>
+
+    <div class="ui three column grid">
+        <div class="column">
+            <div class="ui card"
+                 data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i></div></div>">
+                <div class="image">
+                    <img th:src="@{~/assets/images/question.png}" style="height: 180px;">
+                </div>
+                <div class="content">
+                    <div class="header">问题导则标记</div>
+                    <div class="description">从文本中选取指定的词汇作为实体标记，实体应该与已有知识库中的实体做匹配，以保证抽取的质量。
+                    </div>
+                </div>
+                <div class="ui two bottom attached buttons">
+                    <div class="ui button"><i class="add icon"></i> 详情</div>
+                    <div class="ui primary button" th:onclick="questionGuideTask()"><i class="play icon"></i> 开始</div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="ui card"
+                 data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i></div></div>">
+                <div class="image">
+                    <img th:src="@{~/assets/images/word.png}" style="height: 180px;">
+                </div>
+                <div class="content">
+                    <div class="header">实体抽取标记</div>
+                    <div class="description">从文本中选取指定的词汇作为实体标记，实体应该与已有知识库中的实体做匹配，以保证抽取的质量。
+                    </div>
+                </div>
+                <div class="ui two bottom attached buttons">
+                    <div class="ui button"><i class="add icon"></i> 详情</div>
+                    <div class="ui primary button disabled"><i class="play icon"></i> 已结束</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="ui card"
+                 data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i></div></div>">
+                <div class="image">
+                    <img th:src="@{~/assets/images/network.jpeg}" style="height: 180px;">
+                </div>
+                <div class="content">
+                    <div class="header">关系抽取标记</div>
+                    <div class="description">通过对文本中的实体标记，建立起实体与实体之间的关联关系，并且将关系类型进行丰富，增强知识库的语义网络结构。
+                    </div>
+                </div>
+                <div class="ui two bottom attached buttons">
+                    <div class="ui button"><i class="add icon"></i> 详情</div>
+                    <div class="ui primary button disabled"><i class="play icon"></i> 已结束</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

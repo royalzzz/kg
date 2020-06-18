@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>问题导则标记任务</title>
+    <link rel="stylesheet" type="text/css" th:href="@{~/ui/semantic/semantic.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{~/ui/semantic/style.css}">
+    <script th:src="@{~/js/jquery-3.1.1.min.js}"></script>
+    <script th:src="@{~/ui/semantic/semantic.min.js}"></script>
+    <script th:src="@{~/js/question-guide.js}"></script>
+</head>
+<body>
+<nav th:include="layout/nav::nav"></nav>
+<div class="ui container" style="margin-top: 80px;">
+    <h2 class="ui header">
+        问题导则标记任务
+        <div class="sub header">针对提出的问题，标记出问题所对应的导则。</div>
+    </h2>
+    <div class="ui divider"></div>
+    <div class="ui teal indicating progress" id="progress" th:data-value="${taggedCount}" th:data-total="${allCount}">
+        <div class="bar"></div>
+        <div class="label"></div>
+    </div>
+    <div class="ui horizontal segments" th:if="${question}" >
+        <div class="ui segment" style="width: 60%;" th:object="${question}">
+            <div class="ui message">
+                <div class="header">问题编号：<span th:text="*{id}"></span></div>
+                <p></p>
+                <div class="header">单位名称：<span th:text="*{orgName}"></span></div>
+                <p></p>
+                <div class="header">问题类型：
+                    <span th:text="*{proCatalog}"></span> / <span
+                            th:text="*{oneLevelFactor}"></span> /
+                    <span th:text="*{twoLevelFactor}"></span></div>
+            </div>
+            <div class="ui message">
+                <div class="header">检查内容</div>
+                <p th:text="*{checkContent}"></p>
+            </div>
+            <div class="ui positive message">
+                <div class="header">问题描述</div>
+                <p th:text="*{questionDesc}"></p>
+            </div>
+            <div class="ui message">
+                <div class="header">建议措施</div>
+                <p th:text="*{suggest}"></p>
+            </div>
+        </div>
+        <div class="ui segment" style="width: 40%;">
+            <form th:action="@{/relation/tag-task/question-guide/post}" th:method="post" th:object="${form}">
+                <h3 class="ui header">对应导则：</h3>
+                <div class="ui divider"></div>
+                <select class="ui fluid dropdown" id="selector1" th:field="*{name}"></select>
+<!--                <input type="hidden" id="input1" th:field="*{name}">-->
+                <p></p>
+                <select class="ui fluid dropdown" id="selector2"></select>
+                <p></p>
+                <select class="ui fluid dropdown" id="selector3"></select>
+<!--                <div class="ui search" id="search">-->
+<!--                    <div class="ui icon input">-->
+<!--                        <input class="prompt" th:field="*{name}" required style="border-radius: 3px;" type="text" placeholder="搜索导则……"/>-->
+<!--                        <i class="inverted circular search link icon"></i>-->
+<!--                    </div>-->
+<!--                    <div class="results"></div>-->
+<!--                </div>-->
+                <p></p>
+                <input type="submit" class="ui button" value="提交">
+            </form>
+        </div>
+    </div>
+
+    <!--    <table class="ui green table">-->
+    <!--        <thead>-->
+    <!--        <tr>-->
+    <!--            <th>ID</th>-->
+    <!--            <th>单位名称</th>-->
+    <!--            <th>专业类别</th>-->
+    <!--            <th>一级要素</th>-->
+    <!--            <th>二级要素</th>-->
+    <!--            <th>检查内容</th>-->
+    <!--            <th>问题描述</th>-->
+    <!--            <th>建议措施</th>-->
+    <!--        </tr>-->
+    <!--        </thead>-->
+    <!--        <tbody>-->
+    <!--        <tr th:each="question : ${questionList}">-->
+    <!--            <td th:text="${question.id}"></td>-->
+    <!--            <td th:text="${question.orgName}"></td>-->
+    <!--            <td th:text="${question.proCatalog}"></td>-->
+    <!--            <td th:text="${question.oneLevelFactor}"></td>-->
+    <!--            <td th:text="${question.twoLevelFactor}"></td>-->
+    <!--            <td th:text="${question.checkContent}"></td>-->
+    <!--            <td th:text="${question.questionDesc}"></td>-->
+    <!--            <td th:text="${question.suggest}"></td>-->
+    <!--        </tr>-->
+    <!--        </tbody>-->
+    <!--    </table>-->
+</div>
+</body>
+</html>
