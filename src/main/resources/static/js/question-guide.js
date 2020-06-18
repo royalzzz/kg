@@ -1,87 +1,78 @@
-let categoryContent = [
-    {category: 'South America', title: 'Brazil'},
-    {category: 'South America', title: 'Peru'},
-    {category: 'North America', title: 'Canada'},
-    {category: 'Asia', title: 'South Korea'},
-    {category: 'Asia', title: 'Japan'},
-    {category: 'Asia', title: 'China'},
-    {category: 'Europe', title: 'Denmark'},
-    {category: 'Europe', title: 'England'},
-    {category: 'Europe', title: 'France'},
-    {category: 'Europe', title: 'Germany'},
-    {category: 'Africa', title: 'Ethiopia'},
-    {category: 'Africa', title: 'Nigeria'},
-    {category: 'Africa', title: 'Zimbabwe'},
-];
+let typeValues = [];
+typeValues.push({
+    name: '请选择隐患排查大项',
+    value: '',
+    selected: true
+});
+
+let itemValues = [];
+itemValues.push({
+    name: '请选择隐患排查小项',
+    value: '',
+    selected: true
+});
+
+let checkItemId = 0;
 
 function load() {
-    // $('#progress').progress({percent: 1});
     $('#progress').progress('increment');
-    $('#selector1').dropdown({
-        onChange: function(value, text, $selectedItem) {
-            $('#input1').val(value);
-        },
-        values: [
-            {
-                name: '选择专业隐患排查',
-                value: '',
-                selected: true
-            },
-            {
-                name: 'Male',
-                value: 'male'
-            },
-            {
-                name: 'Female',
-                value: 'female'
-            }
-        ]
+    $('#guide').dropdown({
+        onChange: function (value) {
+            let checkId = value.split('.')[0];
+            $.ajax({
+                url: "/hiddenDangerCheck/getHiddenDangerCheckType",
+                type: "GET",
+                data: {checkId: checkId},
+                success: function (data) {
+                    typeValues = [];
+                    typeValues.push({
+                        name: '请选择隐患排查大项',
+                        value: '',
+                        selected: true
+                    });
+                    for (let i = 0;i < data.length; i++) {
+                        typeValues.push({
+                            name: data[i].checkTypeName,
+                            value: data[i].id
+                        });
+                    }
+                    $('#type').dropdown('change values', typeValues);
+                }
+            });
+        }
     });
-    $('#selector2').dropdown({
-        values: [
-            {
-                name: 'Male',
-                value: 'male'
-            },
-            {
-                name: 'Female',
-                value: 'female',
-                selected: true
-            }
-        ]
+
+    $('#type').dropdown({
+        values: typeValues,
+        onChange: function (value) {
+            $.ajax({
+                url: "/hiddenDangerCheck/getHiddenDangerCheckItem",
+                type: "GET",
+                data: {checkTypeId: value},
+                success: function (data) {
+                    itemValues = [];
+                    itemValues.push({
+                        name: '请选择隐患排查小项',
+                        value: '',
+                        selected: true
+                    });
+                    for (let i = 0;i < data.length; i++) {
+                        itemValues.push({
+                            name: data[i].checkItemName,
+                            value: data[i].id
+                        });
+                    }
+                    $('#item').dropdown('change values', itemValues);
+                }
+            });
+        }
     });
-    $('#selector3').dropdown({
-        values: [
-            {
-                name: '发就是打开房间阿克苏将大幅拉升剪短发阿三开的就发了开始剪短发阿克苏将大幅拉开始剪短发水淀粉阿克苏的就发了开始地方阿克苏的就发拉开始剪短发阿斯顿快放假啦思考的就发阿三开的就发了开始的就发拉开',
-                value: 'male'
-            },
-            {
-                name: '发就是打开房间阿克苏将大幅拉升剪短发阿三开的就发了开始剪短发阿克苏将大幅拉开始剪短发水淀粉阿克苏的就发了开始地方阿克苏的就发拉开始剪短发阿斯顿快放假啦思考的就发阿三开的就发了开始的就发拉开',
-                value: 'male1'
-            },
-            {
-                name: '发就是打开房间阿克苏将大幅拉升剪短发阿三开的就发了开始剪短发阿克苏将大幅拉开始剪短发水淀粉阿克苏的就发了开始地方阿克苏的就发拉开始剪短发阿斯顿快放假啦思考的就发阿三开的就发了开始的就发拉开',
-                value: 'male2'
-            },
-            {
-                name: '发就是打开房间阿克苏将大幅拉升剪短发阿三开的就发了开始剪短发阿克苏将大幅拉开始剪短发水淀粉阿克苏的就发了开始地方阿克苏的就发拉开始剪短发阿斯顿快放假啦思考的就发阿三开的就发了开始的就发拉开',
-                value: 'male3'
-            },
-            {
-                name: '发就是打开房间阿克苏将大幅拉升剪短发阿三开的就发了开始剪短发阿克苏将大幅拉开始剪短发水淀粉阿克苏的就发了开始地方阿克苏的就发拉开始剪短发阿斯顿快放假啦思考的就发阿三开的就发了开始的就发拉开',
-                value: 'male4'
-            },
-            {
-                name: '阿斯顿发就阿莱克斯的肌肤阿克苏将大幅拉就是短发了阿快结束的浪费；就阿斯顿了；否阿三开将大幅拉升空间短发阿三开的就发了；思考大家风范卡洛斯剪短发啦',
-                value: 'female',
-                selected: true
-            }
-        ]
-    });
-    $('#search').search({
-        type: 'category',
-        source: categoryContent
+
+    $('#item').dropdown({
+        values: itemValues,
+        onChange: function (value) {
+            $('#itemId').val(value);
+        }
     });
 }
 

@@ -1,7 +1,8 @@
+
 spring:
   datasource:
     username: root
-    password: dotdot
+    password: 504504
     url: jdbc:mysql://127.0.0.1:3306/kg?characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
@@ -18,3 +19,5 @@ spring:
       uri: bolt://localhost:7687
       username: neo4j
       password: dotdot
+server:
+  port: 8888

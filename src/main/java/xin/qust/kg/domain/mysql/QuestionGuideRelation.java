@@ -1,9 +1,26 @@
-package xin.qust.kg.domain.vo;
+package xin.qust.kg.domain.mysql;
 
-public class QuestionGuideFormVo {
+import javax.persistence.*;
+
+@Entity
+@Table(name = "question_guide_relation")
+public class QuestionGuideRelation {
+
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Id
+    private Long id;
 
     private Long questionId;
+
     private Long checkItemId;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getQuestionId() {
         return questionId;
@@ -19,13 +36,5 @@ public class QuestionGuideFormVo {
 
     public void setCheckItemId(Long checkItemId) {
         this.checkItemId = checkItemId;
-    }
-
-    @Override
-    public String toString() {
-        return "QuestionGuideFormVo{" +
-                "questionId=" + questionId +
-                ", checkItemId=" + checkItemId +
-                '}';
     }
 }

@@ -47,54 +47,27 @@
             </div>
         </div>
         <div class="ui segment" style="width: 40%;">
-            <form th:action="@{/relation/tag-task/question-guide/post}" th:method="post" th:object="${form}">
+            <form th:action="@{/relation/tag-task/question-guide/post}" th:method="post">
                 <h3 class="ui header">对应导则：</h3>
                 <div class="ui divider"></div>
-                <select class="ui fluid dropdown" id="selector1" th:field="*{name}"></select>
-<!--                <input type="hidden" id="input1" th:field="*{name}">-->
+                <div class="ui floating dropdown labeled icon button" id="guide">
+                    <i class="book icon"></i>
+                    <span class="text">选择隐患排查类型</span>
+                    <div class="menu">
+                        <div class="item" th:each="check: ${checkList}" th:text="${check.id}+'.'+${check.checkName}"></div>
+                    </div>
+                </div>
                 <p></p>
-                <select class="ui fluid dropdown" id="selector2"></select>
+                <select class="ui fluid dropdown" id="type"></select>
                 <p></p>
-                <select class="ui fluid dropdown" id="selector3"></select>
-<!--                <div class="ui search" id="search">-->
-<!--                    <div class="ui icon input">-->
-<!--                        <input class="prompt" th:field="*{name}" required style="border-radius: 3px;" type="text" placeholder="搜索导则……"/>-->
-<!--                        <i class="inverted circular search link icon"></i>-->
-<!--                    </div>-->
-<!--                    <div class="results"></div>-->
-<!--                </div>-->
+                <select class="ui fluid dropdown" id="item"></select>
+                <input type="hidden" id="itemId" th:field="${form.checkItemId}">
+                <input type="hidden" id="questionId" th:field="${form.questionId}" required>
                 <p></p>
-                <input type="submit" class="ui button" value="提交">
+                <input type="submit" class="ui violet inverted button" value="提交" style="width: 100%;">
             </form>
         </div>
     </div>
-
-    <!--    <table class="ui green table">-->
-    <!--        <thead>-->
-    <!--        <tr>-->
-    <!--            <th>ID</th>-->
-    <!--            <th>单位名称</th>-->
-    <!--            <th>专业类别</th>-->
-    <!--            <th>一级要素</th>-->
-    <!--            <th>二级要素</th>-->
-    <!--            <th>检查内容</th>-->
-    <!--            <th>问题描述</th>-->
-    <!--            <th>建议措施</th>-->
-    <!--        </tr>-->
-    <!--        </thead>-->
-    <!--        <tbody>-->
-    <!--        <tr th:each="question : ${questionList}">-->
-    <!--            <td th:text="${question.id}"></td>-->
-    <!--            <td th:text="${question.orgName}"></td>-->
-    <!--            <td th:text="${question.proCatalog}"></td>-->
-    <!--            <td th:text="${question.oneLevelFactor}"></td>-->
-    <!--            <td th:text="${question.twoLevelFactor}"></td>-->
-    <!--            <td th:text="${question.checkContent}"></td>-->
-    <!--            <td th:text="${question.questionDesc}"></td>-->
-    <!--            <td th:text="${question.suggest}"></td>-->
-    <!--        </tr>-->
-    <!--        </tbody>-->
-    <!--    </table>-->
 </div>
 </body>
 </html>
